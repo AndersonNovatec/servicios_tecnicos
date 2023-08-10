@@ -1,0 +1,33 @@
+:root {
+  --color-text-primary: #404040;
+  --bg-color-primary: #DA291C;
+  --border-color-primary: 1px solid #5e5e5e;
+  --border-radius: 8px;
+  --button-border-radius: 26px;
+}
+
+.btn-search{
+  background: #DA291C;
+  border-radius: 25px;
+  width: 70%;
+}
+
+.btn-search-disabled{
+  border: solid 1px #B3B3B3;
+  background: #B3B3B3;
+  border-radius: 25px;
+  width: 70%;
+}
+
+.circulo{
+  width: 10px; 
+  height: 10px; 
+  border-radius: 50%; 
+  background: #F5B041;
+}
+
+.linea{
+  align-self: center; 
+  height: 2px; 
+  border: solid 2px #F5B041;
+}

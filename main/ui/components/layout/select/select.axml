@@ -1,0 +1,17 @@
+<view class="container">
+  <view class="dropdown">
+    <view class="dropbtn" onTap="toggleDropdown" a:if="{{ !showDropdown }}">
+      <view>
+        {{selectedOption}}
+      </view>
+      <image class="img-dropbtn" mode="aspectFit" src="/main/ui/assets/icons/drop-down-selectRed.png" />
+    </view>
+    <view class="{{showDropdown ? 'dropdown-content' : 'dropdown-content-hide'}}" a:if="{{showDropdown}}">
+      <scroll-view class="options-list" scroll-y="{{true}}">
+        <view class="option" a:if="{{ item != '' }}" a:for="{{options}}" a:key="{{index}}" id="{{index}}" onTap="selectOption">
+          {{item}}
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</view>

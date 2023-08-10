@@ -1,0 +1,32 @@
+<view class="radio-cstm" id="{{id}}" onTap="check">
+  <view class="row">
+    <view class="col-2" style="position: relative; display: flex; justify-content: center; align-items: center;">
+      <image mode="aspectFit" src={{imagen}} />
+    </view>
+    <view class="col-10">
+      <label class="{{class_txt}}">
+        {{value}}
+      </label>
+    </view>
+  </view>
+</view>
+<!--Vesion 2 Radio Button
+  
+  Diseño compartido por los compañeros de softgic, pendiente revisar cuál es mas optimo 
+  
+  <view class="root-radio-btn">
+  <view class="btn-option">
+    <view class="svg-radio" onTap="onTapIntern">
+      <view class="{{ intern ? 'svg-radio-sm' : '' }}">
+      </view>
+    </view>
+    <text>Interno</text>
+  </view>
+  <view class="btn-option">
+    <view class="svg-radio" onTap="onTapExtern">
+      <view class="{{ extern ? 'svg-radio-sm' : '' }}">
+      </view>
+    </view>
+    <text>Externo</text>
+  </view>
+</view>-->

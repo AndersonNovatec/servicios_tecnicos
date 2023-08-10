@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "loader-splash": "/main/ui/components/informative/loader-splash/loader-splash"
+  },
+  "styleIsolation": "apply-shared"
+}

@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "header-74":"/main/ui/components/layout/header-74/header-74",
+    "modal-error": "/main/ui/components/informative/modal/modal",
+    "loader-splash": "/main/ui/components/informative/loader-splash/loader-splash"
+  },
+  "styleIsolation": "apply-shared"
+}

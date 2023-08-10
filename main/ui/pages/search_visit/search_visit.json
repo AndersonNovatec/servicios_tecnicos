@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "header-74":"/main/ui/components/layout/header-74/header-74",
+    "select" : "/main/ui/components/layout/select/select",
+    "radio" : "/main/ui/components/layout/radio-button/radio-button" ,
+    "loader-splash": "/main/ui/components/informative/loader-splash/loader-splash",
+    "modal" : "/node_modules/mini-ali-ui/es/modal/index"
+  },
+  "styleIsolation": "apply-shared"
+}

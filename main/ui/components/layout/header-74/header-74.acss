@@ -1,0 +1,10 @@
+.header-74{
+  position: sticky;
+  top: 0px;
+  height: 90px;
+  width: 100%;
+  background: transparent linear-gradient(124deg, var(--rojo-base-100-e03224) 0%, #AC1422 100%) 0% 0% no-repeat padding-box;
+  border-radius: 0px 0px 10px 10px;
+  opacity: 1;
+  z-index: 9;
+}

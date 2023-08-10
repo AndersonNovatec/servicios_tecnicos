@@ -1,0 +1,14 @@
+{
+  "subPackageBuildType": "shared",
+  "pages": [
+    "main/ui/pages/search_visit/search_visit",
+    "main/ui/pages/icono_home/icono_home",
+    "main/ui/pages/signUp/signUp",
+    "main/ui/pages/home/home"
+  ],
+  "window": {
+    "defaultTitle": "",
+    "titleBarColor": "#DA291C",
+    "transparentTitle": "always"
+  }
+}

@@ -1,0 +1,14 @@
+<modal
+class="modal"
+show="{{modalOpened}}"
+onModalClick="onModalClick"
+onModalClose="onModalClose"
+topImage="{{topImage}}"
+topImageSize="sm"
+>
+<view class="modal__header" slot="header">{{title}}</view>
+<view class="modal__content"> 
+  {{content}}
+</view>
+<view class="modal__footer" slot="footer">{{footer}}</view>
+</modal>

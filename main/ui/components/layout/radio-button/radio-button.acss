@@ -1,0 +1,37 @@
+.radio-cstm{
+  position: relative;
+  font-family: Arial, Helvetica, sans-serif; 
+}
+
+.radio-cstm image{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 25px; /* Ajusta el ancho y alto según tu imagen */
+  height: 25px;
+}
+.root-radio-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.svg-radio {
+  width: 21px;
+  height: 21px;
+  background-image: url('/main/ui/assets/images/Radio-button.svg');
+  margin: 0 8px 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.svg-radio-sm {
+  width: 13px;
+  height: 13px;
+  background-color: #187385;
+  border-radius: 50%;
+}

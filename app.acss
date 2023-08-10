@@ -1,0 +1,496 @@
+@import '/main/ui/styles/layout.acss';
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto';
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('main/ui/main/ui/assets/fonts/Roboto-Medium.woff2') format('woff2'),
+      url('main/ui/assets/fonts/Roboto-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('main/ui/assets/fonts/Roboto-Light.woff2') format('woff2'),
+      url('main/ui/assets/fonts/Roboto-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('main/ui/assets/fonts/Roboto-Regular.woff2') format('woff2'),
+      url('main/ui/assets/fonts/Roboto-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('main/ui/assets/fonts/Roboto-Bold.woff2') format('woff2'),
+      url('main/ui/assets/fonts/Roboto-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AMX';
+  src: url('main/ui/assets/fonts/AMX-Light.woff2') format('woff2'),
+      url('main/ui/assets/fonts/AMX-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AMX';
+  src: url('main/ui/assets/fonts/AMX-Regular.woff2') format('woff2'),
+      url('main/ui/assets/fonts/AMX-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AMX';
+  src: url('main/ui/assets/fonts/AMX-Medium.woff2') format('woff2'),
+      url('main/ui/assets/fonts/AMX-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AMX';
+  src: url('main/ui/assets/fonts/AMX-Bold.woff2') format('woff2'),
+      url('main/ui/assets/fonts/AMX-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --amarillo-base-100-ffad0d: #FFAD0D;
+  --rojo-base-100-e03224: #E03224;
+  --informacion-1f97ae: #1F97AE;
+  --f5f5fc-bg-dashboard: #F5F5FC;
+  --azul-base-100-187385: #187385;
+  --negro-1f1f1f: #1F1F1F;
+  --bg-button-disabled: #0000004D;
+  --c50-999999: #999999;
+  --c60-808080: #808080;
+  --c70-5e5e5e: #5E5E5E;
+  --c20-cccccc: #CCCCCC;
+  --rojo-base-boton-da291c: #DA291C;
+  --azul-120-10505c: #10505C;
+  --c80-404040: #404040;
+  --sombreados-2f2f60: #2F2F6029;
+  --fdfdff-tarj-fondo-f5f5fc: #FDFDFF;
+  --ffffff-tarj-fondo-fdfdff: #FFFFFF;
+  --unnamed-font-family-roboto: Roboto;
+  --unnamed-font-family-amx: Arial;
+  --unnamed-font-style-normal: normal;
+  --unnamed-font-weight-normal: normal;
+  --unnamed-font-weight-bold: bold;
+  --unnamed-font-weight-medium: medium;
+  --unnamed-font-size-14: 14px;
+  --unnamed-font-size-16: 16px;
+  --unnamed-font-size-18: 18px;
+  --unnamed-font-size-20: 20px;
+  --unnamed-font-size-24: 24px;
+  --unnamed-character-spacing-0: 0px;
+  --unnamed-line-spacing-16: 16px;
+  --unnamed-line-spacing-17: 17px;
+  --unnamed-line-spacing-20: 20px;
+  --unnamed-line-spacing-27: 27px;
+  --unnamed-line-spacing-30: 30px;
+  --unnamed-line-spacing-36: 36px;
+  --unnamed-decoration-underline: underline;
+}
+
+page {
+  background: #f7f7f7;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+}
+.col-1 {
+  /* se ajusta al width para insertar hasta 12 Columnas del mismo tamaño */
+  width: 8.33333%;
+}
+.col-2 {
+  /* se ajusta al width para insertar hasta 6 Columnas del mismo tamaño */
+  width: 16.66667%;
+}
+.col-3 {
+  /* se ajusta al width para insertar hasta 4 Columnas del mismo tamaño */
+  width: 25%;
+}
+.col-4 {
+  /* se ajusta al width para insertar hasta 3 Columnas del mismo tamaño */
+  width: 33.33333%;
+}
+.col-5 {
+  /* se ajusta al width para insertar varias Columnas del diferentes tamaños */
+  width: 41.66667%;
+}
+.col-6 {
+  /* se ajusta al width para insertar maximo 2 Columnas del mismo tamaño */
+  width: 50%;
+}
+.col-7 {
+  /* se ajusta al width para insertar varias Columnas del diferentes tamaños */
+  width: 58.33333%;
+}
+.col-8 {
+  /* se ajusta al width para insertar varias Columnas del diferentes tamaños */
+  width: 66.66667%;
+}
+.col-9 {
+  /* se ajusta al width para insertar varias Columnas del diferentes tamaños */
+  width: 75%;
+}
+.col-10 {
+  /* se ajusta al width para insertar varias Columnas del diferentes tamaños */
+  width: 83.33333%;
+}
+.col-11 {
+  /* se ajusta al width para insertar varias Columnas del diferentes tamaños */
+  width: 91.66667%;
+}
+.col-12 {
+  /* se ajusta al width para insertar 1 Columna en todo el contenido */
+  width: 100%;
+}
+
+
+.informacion{
+  /* Clase para transformar a negrilla y central el contenido */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: 'AMX', sans-serif;
+  font-weight: 100;
+  padding-bottom: 5px;
+}
+
+.informacion-bold{
+  /* Clase para transformar a negrilla y central el contenido */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: 'AMX', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  padding-bottom: 5px;
+}
+
+.form-group{
+  /* Clase para contener un grupo de datos de un formulario */
+  align-items: center;
+  text-align: left;
+  padding: 10px 0px 0px 0px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+.form-control{
+  /* Clase para contener un input o algun elemento perteneciente a un formulario */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  padding: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+}
+
+.form-info{
+  margin-left: 2px;
+  margin-bottom: 5px;
+}
+
+.link{
+  font-family: Arial, Helvetica, sans-serif;
+  color: #187385;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.link-corto{
+  font-size: 15px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: #187385;
+  font-weight: 780;
+  text-decoration: underline;
+}
+
+.texto-basico{
+  padding: 0px 5px 0px 5px;
+  font-size: 15px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 550;
+  letter-spacing: 0px;
+}
+
+.texto-big{
+  padding: 10px 15px 10px 15px;
+  font-size: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 650;
+  letter-spacing: 0px;
+}
+
+.Ingreso{
+  border-radius: 24px 24px 24px 24px;
+  color: white !important;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+}
+
+.Ingreso-dos{
+  background-color: white;
+  border: solid 2px #DA291C;
+  border-radius: 24px 24px 24px 24px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #DA291C !important;
+  font-weight: 600;
+}
+
+.input{
+  width: 526rpx;
+  border: solid gray 1px;
+  border-radius: 7px 7px 7px 7px;
+  height: 65rpx;
+}
+
+.input input {
+  height: 40px;
+  border: none;
+  background: none;
+}
+
+.register-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  font-family: Arial, Helvetica, sans-serif; 
+  color: #187385; 
+  font-weight: 600;
+}
+
+.register-icon image {
+  position: absolute;
+  left: 28%;
+  top: 39%;
+  transform: translateY(-50%);
+  width: 25px; /* Ajusta el ancho y alto según tu imagen */
+  height: 25px;
+}
+
+.alert{
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  color: red;
+  font-size: 12px;
+}
+.linea{
+  margin-right: 30px;
+  margin-left: 30px;
+  margin-top: 5px;
+  margin-bottom: 30px;
+  border-bottom: solid gray 1px;
+}
+
+.modal {
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  width: 100vw;
+  z-index: 2;
+}
+
+.modalUserList {
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  height: 145vh;
+  justify-content: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  width: 100vw;
+  z-index: 2;
+}
+/* MODAL CLASES */
+.iconModal {
+  width: 30px;
+  height: 30px;
+}
+
+.iconModal_x {
+  width: 14px;
+  height: 14px;
+}
+
+.iconModalUsers {
+  width: 45px;
+  height: 45px;
+}
+
+.buttonModal {
+  background-color: #DA291C;
+  border: none;
+  border-radius: 25px;
+  width: 200px;
+  color: #FFFFFF;
+  margin: 16px 0px 50px 0px;
+  height: 43px;
+}
+.showModal {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.image-modal{
+  width: 50%;
+  height: 50%;
+}
+
+.ic_mi_claro {
+  width: 40%;
+  margin-bottom: 10px;
+}
+
+.ic_loading {
+  width: 30px;
+  height: 30px;
+  margin-top: 10px;
+}
+
+.ic_alert_2 {
+  width: 30%;
+  margin-bottom: 10px;
+}
+
+.modal{
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.am-modal-content {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    padding: 20px 20px;
+}
+
+.am-modal-body {
+  max-width: 95%;
+}
+
+.am-modal-mask{
+  backdrop-filter: blur(5px);
+}
+
+.text-modal-title{
+  text-align: center;
+  font-family: 'AMX-Bold', sans-serif, Arial;
+  font-size: 18px;
+  color: #404040;
+}
+
+.text-modal-body{
+  text-align: center;
+  font-family: 'Roboto-Regular', sans-serif, Arial;
+  font-size: 14px;
+  color: #404040;
+}
+
+.btn-modal-accept {
+  width: 70%;
+  background-color: #DA291C;
+  color: white;
+  font-family: 'Roboto-Medium', sans-serif, Arial;
+  font-size: 16px;
+  border-radius: 1.5em;
+}
+
+.modal-slot-footer{
+  background-color: #DA291C;
+  text-align: center;
+  font-family: 'AMX', sans-serif, Arial;
+  font-size: 0.9em;
+  font-weight: 600;
+  color: white;
+  border-radius: 0px 0px 8px 8px;
+  box-shadow: 0px 5px 5px 2px #504f4f;
+}
+
+
+/* FIN MODAL CLASES */
+
+.claro-lg{
+  border-bottom: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 32px;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: lighter;  
+  font-weight: 600;
+  margin-top: 3px;
+  padding: 0px 7px 0px 7px;
+}
+.transition{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/main/ui/assets/Imagenes/Grupo_26062_2x.png');
+  background-size: cover;
+  z-index: 9999;
+}
+
+.fondo-blanco{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #CBCDCD;
+  background-size: cover;
+  z-index: 9998;
+}
+
+.text-icon{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  text-align: center;
+}
+.container {
+  padding: 30rpx;
+}

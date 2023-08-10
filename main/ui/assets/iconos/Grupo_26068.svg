@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="11" height="11" viewBox="0 0 11 11">
+  <defs>
+    <clipPath id="clip-path">
+      <circle id="Elipse_10570" data-name="Elipse 10570" cx="5.5" cy="5.5" r="5.5" transform="translate(-17144 -4577)" fill="red"/>
+    </clipPath>
+  </defs>
+  <g id="Grupo_26068" data-name="Grupo 26068" transform="translate(17144 4577)">
+    <circle id="Elipse_10296" data-name="Elipse 10296" cx="5.5" cy="5.5" r="5.5" transform="translate(-17144 -4577)" fill="red"/>
+    <g id="Enmascarar_grupo_17764" data-name="Enmascarar grupo 17764" clip-path="url(#clip-path)">
+      <g id="icono-x-ppal" transform="translate(-17143.895 -4576.89)">
+        <path id="Trazado_28441" data-name="Trazado 28441" d="M364.787,651.005a.771.771,0,0,1-.545-1.316l9.248-9.248a.771.771,0,0,1,1.084,1.084l-9.248,9.248a.769.769,0,0,1-.545.226" transform="translate(-364.016 -640.225)" fill="#fff"/>
+        <path id="Trazado_28442" data-name="Trazado 28442" d="M374.038,650.992a.768.768,0,0,1-.545-.226l-9.248-9.248a.771.771,0,0,1,1.09-1.09l9.248,9.248a.771.771,0,0,1-.545,1.315" transform="translate(-364.019 -640.212)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

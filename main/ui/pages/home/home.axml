@@ -1,0 +1,39 @@
+<view class="page-manage">
+  <view class="manage">
+    <text class="title">Servicio Técnico</text>
+    <view class="options">
+      <view onTap="selectTab" data-tab="1" class="button {{typeAccountTab === '1' ? 'select' : ''}}">Hogar</view>
+      <view onTap="selectTab" data-tab="2" class="button {{typeAccountTab === '2' ? 'select' : ''}}">Prepago</view>
+      <view onTap="selectTab" data-tab="3" class="button {{typeAccountTab === '3' ? 'select' : ''}}">Postpago</view>
+    </view>
+    <view class="button-detail-list">
+      <view a:if="{{ typeAccountTab === '1' }}" class="button-detail" a:for="{{ accountsType1 }}" data-item="{{item}}" onTap="setAccountSelect">
+        <text class="text">{{item.alias}}</text>
+        <view class="detail">
+          <text class="text">Ir a Mini Programa</text>
+          <image class="image" mode="scaleToFill" src="/main/ui/assets/icons/icono-chevron-rigth-ppal.png" />
+        </view>
+      </view>
+      <view a:if="{{ typeAccountTab === '2' }}" a:for="{{ accountsType2 }}" class="button-detail" data-item="{{item}}" onTap="setAccountSelect">
+        <text class="text">{{item.alias}}</text>
+        <view class="detail">
+          <text class="text">Ir a Mini Programa</text>
+          <image class="image" mode="scaleToFill" src="/main/ui/assets/icons/icono-chevron-rigth-ppal.png" />
+        </view>
+      </view>
+      <view a:if="{{ typeAccountTab === '3' }}" class="button-detail" a:for="{{ accountsType3 }}" data-item="{{item}}" onTap="setAccountSelect">
+        <text class="text">{{item.alias}}</text>
+        <view class="detail">
+          <text class="text">Ir a Mini Programa</text>
+          <image class="image" mode="scaleToFill" src="/main/ui/assets/icons/icono-chevron-rigth-ppal.png" />
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <button size="default" onTap="startClearStorage" class="close_bttn" type="primary">
+    <image mode="aspectFit" src="/main/ui/assets/icons/logout.png" />
+  </button>
+</view>
+
+<loader-splash show="{{isLoading}}"></loader-splash>

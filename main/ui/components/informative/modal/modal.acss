@@ -1,0 +1,9 @@
+.modal {
+  font-family: 'Roboto';
+}
+.modal .modal__header {
+  font-weight: 500;
+}
+.modal .modal__content {
+  font-weight: 400;
+}

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "header-74":"/main/ui/components/layout/header-74/header-74"
+  },
+  "styleIsolation": "apply-shared"
+}
