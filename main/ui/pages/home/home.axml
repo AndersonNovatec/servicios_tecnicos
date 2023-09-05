@@ -10,21 +10,21 @@
       <view a:if="{{ typeAccountTab === '1' }}" class="button-detail" a:for="{{ accountsType1 }}" data-item="{{item}}" onTap="setAccountSelect">
         <text class="text">{{item.alias}}</text>
         <view class="detail">
-          <text class="text">Ir a Mini Programa</text>
+          <text class="text">Ver detalle</text>
           <image class="image" mode="scaleToFill" src="/main/ui/assets/icons/icono-chevron-rigth-ppal.png" />
         </view>
       </view>
       <view a:if="{{ typeAccountTab === '2' }}" a:for="{{ accountsType2 }}" class="button-detail" data-item="{{item}}" onTap="setAccountSelect">
         <text class="text">{{item.alias}}</text>
         <view class="detail">
-          <text class="text">Ir a Mini Programa</text>
+          <text class="text">Ver detalle</text>
           <image class="image" mode="scaleToFill" src="/main/ui/assets/icons/icono-chevron-rigth-ppal.png" />
         </view>
       </view>
       <view a:if="{{ typeAccountTab === '3' }}" class="button-detail" a:for="{{ accountsType3 }}" data-item="{{item}}" onTap="setAccountSelect">
         <text class="text">{{item.alias}}</text>
         <view class="detail">
-          <text class="text">Ir a Mini Programa</text>
+          <text class="text">Ver detalle</text>
           <image class="image" mode="scaleToFill" src="/main/ui/assets/icons/icono-chevron-rigth-ppal.png" />
         </view>
       </view>

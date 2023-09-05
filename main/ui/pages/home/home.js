@@ -10,6 +10,7 @@ Page({
     typeAccountTab: 3
   },
   setAccountSelect({target}) {
+    console.log(target);
     if (!this.isLoading) {
       this.setData({isLoading: true})
       // aqui se va a disparar un evento asincrono y despues se va a guardar en localstorage una información
@@ -22,7 +23,7 @@ Page({
         if(response.error === 0) {
           userViewModel.setLocalLine({...data, ...response.response[0]})
           my.navigateTo({
-            url: '/main/ui/pages/search_visit/search_visit'
+            url: '/main/ui/pages/search_visit/search_visit?client='
           })
         } 
         this.setData({

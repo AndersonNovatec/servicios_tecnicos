@@ -3,7 +3,7 @@ Page({
   onLoad() {},
   redirect(){
     my.navigateTo({
-      url: '/main/ui/pages/manage/manage'
+      url: '/main/ui/pages/home/home'
     })
   }
 });

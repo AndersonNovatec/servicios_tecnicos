@@ -8,7 +8,7 @@
     </view>
     <view class="{{showDropdown ? 'dropdown-content' : 'dropdown-content-hide'}}" a:if="{{showDropdown}}">
       <scroll-view class="options-list" scroll-y="{{true}}">
-        <view class="option" a:if="{{ item != '' }}" a:for="{{options}}" a:key="{{index}}" id="{{index}}" onTap="selectOption">
+        <view class="option" a:for="{{options}}" a:if="{{ item != '' }}" a:key="{{index}}" id="{{index}}" onTap="selectOption">
           {{item}}
         </view>
       </scroll-view>

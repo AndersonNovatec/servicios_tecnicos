@@ -2,7 +2,10 @@
 <view style="text-align: center; margin-top: 20px; font-weight: 600">
   Órdenes de servicio
 </view>
-<view style="text-align: center; margin-top: 40px; font-size: 13px">
+<view style="text-align: center; margin-top: 5px; font-weight: 600; color: #187385; font-weight: 900">
+  {{cuenta}}
+</view>
+<view style="text-align: center; margin-top: 30px; font-size: 13px">
   Consulta el estado de tus
 </view>
 <view style="margin-top: 5px; text-align: center; font-size: 13px">
@@ -22,10 +25,10 @@
   </view>
 </view>
 <view a:if="{{ response }}" style="margin-top: 47%; margin-left: 15px;">
-  <view style="margin-bottom: 20px;">
-    Selecciona la orden de servicio que deseas
+  <view style="margin-bottom: 20px; text-align: center;">
+    Elige una orden de servicio para ver su estado:
   </view>
-  <view a:for="{{radio}}" a:key="{{index}}" style="margin-bottom: 5px;">
+  <view a:for="{{radio}}" a:key="{{index}}" style="margin-bottom: 5px; margin-left: 14%">
     <radio value= {{radio[index].value}}
     imagen = {{radio[index].imagen}}
     onEvent = "radioSelected"
@@ -37,169 +40,157 @@
     <button class="btn-search" size="default" type="warn">Ver seguimiento</button>
   </view>
 </view>
-<scroll-view style="margin-top: 47%;">
+<view style="margin-top: 47%;">
   <view a:if="{{ showOrder }}">
-    <view style="display: grid; grid-template-columns: repeat(auto-fit, minmax(10px, 5fr)); gap: 0px; margin: 25px 70px 15px 50px; text-align: center;">
-      <view><image mode="widthFix" style="width: 25px; height: 25px; {{countArray.length < 1 ? 'opacity : 0.3' : ''}}" src="/main/ui/assets/iconos/agenteV.png" /></view>
-      <view><image mode="widthFix" style="width: 25px; height: 25px; {{countArray.length < 2 ? 'opacity : 0.3' : ''}}" src="/main/ui/assets/iconos/herramientaV.png" /></view>
-      <view><image mode="widthFix" style="width: 35px; height: 35px; {{countArray.length < 3 ? 'opacity : 0.3' : ''}}" src="/main/ui/assets/iconos/transporteV.png" /></view>
-      <view><image mode="widthFix" style="width: 33px; height: 33px; {{countArray.length < 4 ? 'opacity : 0.3' : ''}}" src="/main/ui/assets/iconos/celular_manoV.png" /></view>
-      <view><image mode="widthFix" style="margin-top: 4px; width: 23px; height: 23px; {{countArray.length < 5 ? 'opacity : 0.3' : ''}}" src="/main/ui/assets/iconos/celular_checkV.png" /></view>
+    <block a:if="{{ countArray.length > 0 }}">
+      <view style="color: #187385; display: grid; grid-template-columns: repeat(auto-fit, minmax(10px, 5fr)); gap: 0px; margin: 25px 60px 15px 50px; text-align: center;">
+        <block a:for="{{countArray}}" a:key="index">
+          <view style="border: solid; border-radius: 100%; padding: 0px; width: 22px;">{{index+1}}</view>
+          <view a:if="{{index < countArray.length - 1}}" style="margin-top: 10px; border: solid; width: 20px; height: 1px;"></view>
+        </block>
+      </view>
+    </block>
+    <block a:if="{{ countArray.length == 0 }}">
+      <view style="color: #187385; display: grid; grid-template-columns: repeat(auto-fit, minmax(10px, 5fr)); gap: 0px; margin: 25px 60px 15px 50px; text-align: center;">
+        <view style="border: solid; border-radius: 100%; padding: 0px; width: 22px;">1</view>
+        <view style="margin-top: 10px; border: solid; width: 20px; height: 1px;"></view>
+      </view>
+    </block>
+    <view class="row">
+      <view class="col-12" style="color: #187385; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; max-width: 100%;">{{dateOrder}}</view>
     </view>
-    <view style="display: grid; grid-template-columns: repeat(auto-fit, minmax(10px, 5fr)); gap: 0px; margin: 15px 10px 15px 30px; text-align: center;">
-      <view class="dynamic-view" a:for="{{countArray}}" a:key="index" style="align-self: center; height: 2px; border: solid 2px #F5B041"></view>
-      <view a:if="{{ countArray.length < 5 }}" style="width: 10px; height: 10px; border-radius: 50%; background: #F58241"></view>
-      <view a:for="{{emptyViews}}" a:key="index"></view>
-      <view a:if="{{ countArray.length >= 5 }}" style="width: 10px; height: 10px; border-radius: 50%; background: #F58241"></view>
-    </view>
-    <view class="row" style="margin-top: 30px;">
-      <view class="col-3" style="text-align: center"><image mode="widthFix" style="width: 25px; height: 25px" src="/main/ui/assets/iconos/checkV.png" /></view>
-      <view class="col-8" style="display: flex; align-items: center; justify-content: left; font-size: 12px; font-weight: 700; max-width: 90%">{{dateOrder}}</view>
-    </view>
-    <view a:if="{{ !detailOrder }}" class="row" style="margin-top: 20px; display: flex; align-items: center; justify-content: center" onTap="showDetail" id="detail">
-      <view style="position: relative; display: inline-block; background-color: #f2f2f2; color: #333; padding: 15rpx; font-size: 30rpx; border: none; cursor: pointer; min-width: 650rpx;">
+    <view class="row" style="color: #187385; margin-top: 30px; display: flex; align-items: center; justify-content: center;" onTap="showListDetailOrder" id="detail">
+      <view class="detalle">
         <view class="row" style="display: flex; align-items: center; justify-content: center; text-align: center">
-          <view class="col-2" style="display: flex; align-items: center; justify-content: center;">
-            <image mode="widthFix" style="width: 25px; height: 25px" src="/main/ui/assets/iconos/checklistV.png" />
+          <view class="col-1" style="display: flex; align-items: center; justify-content: center;">
+            <image mode="widthFix" style="width: 25px; height: 25px" src="/main/ui/assets/iconos/Icono-hogar-problema.svg" />
           </view>
-          <view class="col-10" style="display: flex; align-items: center; justify-content: center; text-align: center;">
-            <label style="font-size: 12px;">Detalle de la orden de servicio</label>
-            <image class="img-dropbtn" mode="aspectFit" src="/main/ui/assets/icons/drop-down-selectBN.png" />
+          <view class="col-11" style="display: flex; align-items: center; justify-content: center; text-align: center;">
+            <label style="font-size: 15px;">Detalle de la orden de servicio</label>
+            <image mode="widthFix" style="margin-left: 16%; width: 18px; height: 18px" src="/main/ui/assets/iconos/flecha_derecha.svg" />
           </view>
         </view>
       </view>
-    </view>
-    <view a:if="{{ detailOrder }}" class="row" style="margin-top: 20px; display: flex; align-items: center; justify-content: center" onTap="showDetail" id="detail">
-      <view style="position: relative; display: inline-block; background-color: #DA291C; color: white; font-size: 30rpx; border: none; cursor: pointer; min-width: 650rpx; height: 35px">
-        <view class="row" style="padding: 0px; margin: 0px; display: flex; align-items: center; justify-content: center; text-align: center">
-          <view class="col-2" style="padding: 0px; margin: 0px; display: flex; align-items: center; justify-content: center; background-color: white; border-radius: 0px 20px 20px 0px; height: 35px;">
-            <image mode="widthFix" style="width: 25px; height: 25px" src="/main/ui/assets/iconos/checklistV.png" />
-          </view>
-          <view class="col-10" style="margin-top: 0%; display: flex; align-items: center; justify-content: center; text-align: center;">
-            <label style="font-size: 12px;">Detalle de la orden de servicio</label>
-            <image class="img-dropbtn" mode="aspectFit" src="/main/ui/assets/icons/drop-down-selectUpWhite.png" />
-          </view>
-        </view>
-      </view>
-      <view style="position: relative; display: inline-block; background-color: #f2f2f2; color: #333; padding: 15rpx; font-size: 30rpx; border: none; cursor: pointer; min-width: 650rpx;">
-        <view class="row" style="display: flex; align-items: center; justify-content: center;">
-          <view class="col-6" style="display: flex; align-items: left; justify-content: left; text-align: left; font-size: 11px; padding: 10px; ">
-            ODS
-          </view>
-          <view class="col-6" style="display: flex; align-items: left; justify-content: left; text-align: left; font-size: 11px; padding: 10px; ">
-            {{detailOrderData.ods}}
-          </view>
-        </view>
+    </view>    
+    <view class="row" style="margin-top: 10px; display: flex; align-items: center; justify-content: center" onTap="showListDetailOrder" id="observ">
+      <view class="detalle">
         <view class="row" style="display: flex; align-items: center; justify-content: center; text-align: center">
-          <view class="col-6" style="display: flex; align-items: left; justify-content: left; text-align: left; font-size: 11px; padding: 10px; ">
-            Ingreso
+          <view class="col-1" style="display: flex; align-items: center; justify-content: center;">
+            <image mode="widthFix" style="width: 20px; height: 20px" src="/main/ui/assets/iconos/icono-headphones-ppal.svg" />
           </view>
-          <view class="col-6" style="display: flex; align-items: left; justify-content: left; text-align: left; font-size: 11px; padding: 10px; ">
-            {{detailOrderData.ingreso}}
-          </view>
-        </view>
-        <view class="row" style="display: flex; align-items: center; justify-content: center; text-align: center">
-          <view class="col-6" style="display: flex; align-items: left; justify-content: left; text-align: left; font-size: 11px; padding: 10px; ">
-            Punto de ingreso
-          </view>
-          <view class="col-6" style="display: flex; align-items: left; justify-content: left; text-align: left; font-size: 11px; padding: 10px; ">
-            {{detailOrderData.puntoIngreso}}
-          </view>
-        </view>
-        <view class="row" style="display: flex; align-items: center; justify-content: center; text-align: center">
-          <view class="col-6" style="display: flex; align-items: left; justify-content: left; text-align: left; font-size: 11px; padding: 10px; ">
-            Marca
-          </view>
-          <view class="col-6" style="display: flex; align-items: left; justify-content: left; text-align: left; font-size: 11px; padding: 10px; ">
-            {{detailOrderData.marca}}
-          </view>
-        </view>
-        <view class="row" style="display: flex; align-items: center; justify-content: center; text-align: center">
-          <view class="col-6" style="display: flex; align-items: left; justify-content: left; text-align: left; font-size: 11px; padding: 10px; ">
-            Color
-          </view>
-          <view class="col-6" style="display: flex; align-items: left; justify-content: left; text-align: left; font-size: 11px; padding: 10px; ">
-            {{detailOrderData.color}}
-          </view>
-        </view>
-        <view class="row" style="display: flex; align-items: center; justify-content: center; text-align: center">
-          <view class="col-6" style="display: flex; align-items: left; justify-content: left; text-align: left; font-size: 11px; padding: 10px; ">
-            Serial
-          </view>
-          <view class="col-6" style="display: flex; align-items: left; justify-content: left; text-align: left; font-size: 11px; padding: 10px; ">
-            {{detailOrderData.serial}}
-          </view>
-        </view>
-        <view class="row" style="display: flex; align-items: center; justify-content: center; text-align: center">
-          <view class="col-6" style="display: flex; align-items: left; justify-content: left; text-align: left; font-size: 11px; padding: 10px; ">
-            Revision
-          </view>
-          <view class="col-6" style="display: flex; align-items: left; justify-content: left; text-align: left; font-size: 11px; padding: 10px; ">
-            {{detailOrderData.revision}}
-          </view>
-        </view>
-        <view class="row" style="display: flex; align-items: center; justify-content: center; text-align: center">
-          <view class="col-6" style="display: flex; align-items: left; justify-content: left; text-align: left; font-size: 11px; padding: 10px; ">
-            Entrega
-          </view>
-          <view class="col-6" style="display: flex; align-items: left; justify-content: left; text-align: left; font-size: 11px; padding: 10px; ">
-            {{detailOrderData.entrega}}
-          </view>
-        </view>
-        <view class="row" style="display: flex; align-items: center; justify-content: center; text-align: center">
-          <view class="col-6" style="display: flex; align-items: left; justify-content: left; text-align: left; font-size: 11px; padding: 10px; ">
-            Estado
-          </view>
-          <view class="col-6" style="display: flex; align-items: left; justify-content: left; text-align: left; font-size: 11px; padding: 10px; ">
-            {{detailOrderData.estado}}
-          </view>
-        </view>
-        <view class="row" style="display: flex; align-items: center; justify-content: center; text-align: center">
-          <view class="col-6" style="display: flex; align-items: left; justify-content: left; text-align: left; font-size: 11px; padding: 10px; ">
-            Dispositivo en prestamo
-          </view>
-          <view class="col-6" style="display: flex; align-items: left; justify-content: left; text-align: left; font-size: 11px; padding: 10px; ">
-            {{detailOrderData.prestamo}}
-          </view>
-        </view>
-      </view>
-    </view>
-    <view a:if="{{ !obveservOrder }}" class="row" style="margin-top: 10px; display: flex; align-items: center; justify-content: center" onTap="showDetail" id="observ">
-      <view style="position: relative; display: inline-block; background-color: #f2f2f2; color: #333; padding: 15rpx; font-size: 30rpx; border: none; cursor: pointer; min-width: 650rpx;">
-        <view class="row" style="display: flex; align-items: center; justify-content: center; text-align: center">
-          <view class="col-2" style="display: flex; align-items: center; justify-content: center;">
-            <image mode="widthFix" style="width: 25px; height: 25px" src="/main/ui/assets/iconos/engranajeV.png" />
-          </view>
-          <view class="col-10" style="display: flex; align-items: center; justify-content: center; text-align: center;">
-            <label style="font-size: 12px;">Observaciones de reparación</label>
-            <image class="img-dropbtn" mode="aspectFit" src="/main/ui/assets/icons/drop-down-selectBN.png" />
-          </view>
-        </view>
-      </view>
-    </view>
-    <view a:if="{{ obveservOrder }}" class="row" style="margin-top: 20px; display: flex; align-items: center; justify-content: center" onTap="showDetail" id="observ">
-      <view style="position: relative; display: inline-block; background-color: #DA291C; color: white; font-size: 30rpx; border: none; cursor: pointer; min-width: 650rpx; height: 35px">
-        <view class="row" style="padding: 0px; margin: 0px; display: flex; align-items: center; justify-content: center; text-align: center">
-          <view class="col-2" style="padding: 0px; margin: 0px; display: flex; align-items: center; justify-content: center; background-color: white; border-radius: 0px 20px 20px 0px; height: 35px;">
-            <image mode="widthFix" style="width: 25px; height: 25px" src="/main/ui/assets/iconos/engranajeV.png" />
-          </view>
-          <view class="col-10" style="margin-top: 0%; display: flex; align-items: center; justify-content: center; text-align: center;">
-            <label style="font-size: 12px;">Observaciones de reparación</label>
-            <image class="img-dropbtn" mode="aspectFit" src="/main/ui/assets/icons/drop-down-selectUpWhite.png" />
-          </view>
-        </view>
-      </view>
-      <view style="position: relative; display: inline-block; background-color: #f2f2f2; color: #333; padding: 15rpx; font-size: 30rpx; border: none; cursor: pointer; min-width: 630rpx;">
-        <view class="row" style="display: flex; align-items: center; justify-content: center; text-align: center; max-width: 630rpx;">
-          <view class="col-12" style="display: flex; align-items: left; justify-content: left; text-align: left; font-size: 11px; padding: 10px;">
-            <label>{{obveservOrderData.data}}</label>
+          <view class="col-11" style="display: flex; align-items: center; justify-content: center; text-align: center;">
+            <label style="font-size: 15px;">Observaciones de reparación</label>
+            <image mode="widthFix" style="margin-left: 16%; width: 18px; height: 18px" src="/main/ui/assets/iconos/flecha_derecha.svg" />
           </view>
         </view>
       </view>
     </view>
   </view>
-</scroll-view>
+</view>
 <loader-splash show="{{isLoading}}"></loader-splash>
+<view class="container-modal-select-details {{modalSelectorDocTypeOpenClass}}">
+  <view class="row" style="display: flex; align-items: center; justify-content: center; margin-top: 8px">
+    <view class="col-12 barra" onTap="showListDetailOrder"></view>
+  </view>
+  <view class="row" style="margin-top: 25px">
+    <view class="col-12 form_title font-size-20">
+      {{ detailOrder ? 'Detalle de la orden de servicio' : 'Observaciones del servicio'}}
+    </view>
+  </view>
+  <view a:if="{{ detailOrder }}" class="row" style="margin-top: 20px; display: flex; align-items: center; justify-content: center">
+    <view style="position: relative; display: inline-block; color: #333; padding: 15rpx; font-size: 30rpx; border: none; cursor: pointer; min-width: 650rpx;">
+      <view class="row" style="display: flex; align-items: center; justify-content: center;">
+        <view class="col-6" style="display: flex; align-items: left; justify-content: left; text-align: left; font-size: 11px; padding: 10px; ">
+          ODS
+        </view>
+        <view class="col-6" style="display: flex; align-items: left; justify-content: left; text-align: left; font-size: 11px; padding: 10px; ">
+          {{detailOrderData.ods}}
+        </view>
+      </view>
+      <view class="row" style="display: flex; align-items: center; justify-content: center; text-align: center">
+        <view class="col-6" style="display: flex; align-items: left; justify-content: left; text-align: left; font-size: 11px; padding: 10px; ">
+          Ingreso
+        </view>
+        <view class="col-6" style="display: flex; align-items: left; justify-content: left; text-align: left; font-size: 11px; padding: 10px; ">
+          {{detailOrderData.ingreso}}
+        </view>
+      </view>
+      <view class="row" style="display: flex; align-items: center; justify-content: center; text-align: center">
+        <view class="col-6" style="display: flex; align-items: left; justify-content: left; text-align: left; font-size: 11px; padding: 10px; ">
+          Punto de ingreso
+        </view>
+        <view class="col-6" style="display: flex; align-items: left; justify-content: left; text-align: left; font-size: 11px; padding: 10px; ">
+          {{detailOrderData.puntoIngreso}}
+        </view>
+      </view>
+      <view class="row" style="display: flex; align-items: center; justify-content: center; text-align: center">
+        <view class="col-6" style="display: flex; align-items: left; justify-content: left; text-align: left; font-size: 11px; padding: 10px; ">
+          Marca
+        </view>
+        <view class="col-6" style="display: flex; align-items: left; justify-content: left; text-align: left; font-size: 11px; padding: 10px; ">
+          {{detailOrderData.marca}}
+        </view>
+      </view>
+      <view class="row" style="display: flex; align-items: center; justify-content: center; text-align: center">
+        <view class="col-6" style="display: flex; align-items: left; justify-content: left; text-align: left; font-size: 11px; padding: 10px; ">
+          Color
+        </view>
+        <view class="col-6" style="display: flex; align-items: left; justify-content: left; text-align: left; font-size: 11px; padding: 10px; ">
+          {{detailOrderData.color}}
+        </view>
+      </view>
+      <view class="row" style="display: flex; align-items: center; justify-content: center; text-align: center">
+        <view class="col-6" style="display: flex; align-items: left; justify-content: left; text-align: left; font-size: 11px; padding: 10px; ">
+          Serial
+        </view>
+        <view class="col-6" style="display: flex; align-items: left; justify-content: left; text-align: left; font-size: 11px; padding: 10px; ">
+          {{detailOrderData.serial}}
+        </view>
+      </view>
+      <view class="row" style="display: flex; align-items: center; justify-content: center; text-align: center">
+        <view class="col-6" style="display: flex; align-items: left; justify-content: left; text-align: left; font-size: 11px; padding: 10px; ">
+          Revision
+        </view>
+        <view class="col-6" style="display: flex; align-items: left; justify-content: left; text-align: left; font-size: 11px; padding: 10px; ">
+          {{detailOrderData.revision}}
+        </view>
+      </view>
+      <view class="row" style="display: flex; align-items: center; justify-content: center; text-align: center">
+        <view class="col-6" style="display: flex; align-items: left; justify-content: left; text-align: left; font-size: 11px; padding: 10px; ">
+          Entrega
+        </view>
+        <view class="col-6" style="display: flex; align-items: left; justify-content: left; text-align: left; font-size: 11px; padding: 10px; ">
+          {{detailOrderData.entrega}}
+        </view>
+      </view>
+      <view class="row" style="display: flex; align-items: center; justify-content: center; text-align: center">
+        <view class="col-6" style="display: flex; align-items: left; justify-content: left; text-align: left; font-size: 11px; padding: 10px; ">
+          Estado
+        </view>
+        <view class="col-6" style="display: flex; align-items: left; justify-content: left; text-align: left; font-size: 11px; padding: 10px; ">
+          {{detailOrderData.estado}}
+        </view>
+      </view>
+      <view class="row" style="display: flex; align-items: center; justify-content: center; text-align: center">
+        <view class="col-6" style="display: flex; align-items: left; justify-content: left; text-align: left; font-size: 11px; padding: 10px; ">
+          Dispositivo en prestamo
+        </view>
+        <view class="col-6" style="display: flex; align-items: left; justify-content: left; text-align: left; font-size: 11px; padding: 10px; ">
+          {{detailOrderData.prestamo}}
+        </view>
+      </view>
+    </view>
+  </view>
+  <view a:if="{{ obveservOrder }}" class="row" style="margin-top: 20px; display: flex; align-items: center; justify-content: center">
+    <view style="position: relative; display: inline-block; color: #333; padding: 15rpx; font-size: 30rpx; border: none; cursor: pointer; min-width: 630rpx;">
+      <view class="row" style="display: flex; align-items: center; justify-content: center; text-align: center; max-width: 630rpx;">
+        <view class="col-12" style="display: flex; align-items: left; justify-content: left; text-align: left; font-size: 11px; padding: 10px;">
+          <label>{{obveservOrderData.data}}</label>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
 <scroll-view>
   <modal
     show="{{modalOpened}}"
@@ -228,3 +219,4 @@
     <view a:if="{{modalViewSlotFooter}}" class="modal-slot-footer" slot="footer" onTap="onModalClose">Cerrar</view>
   </modal>
 </scroll-view>
+<view a:if="{{ overlay }}" class="overlay" onTap="showListDetailOrder"></view>

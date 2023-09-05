@@ -4,8 +4,10 @@ var resultRadioData = [];
 
 Page({
   data: { 
+    cuenta: '123456',
     isLoading: false,
     option : '',
+    overlay : false,
     param : '',
     radio : resultRadioData,
     response : false,
@@ -13,6 +15,7 @@ Page({
     dateOrder : '',
     detailOrder : false,
     class_btn : 'btn-search-disabled',
+    overlayClass:'',
     detailOrderData : {
       ods : '',
       ingreso : '', 
@@ -209,7 +212,7 @@ Page({
           return {
             ...item,
             checked: 'true',
-            imagen : '/main/ui/assets/iconos/radio-checkRed.png'
+            imagen : '/main/ui/assets/iconos/radio-checkV.png'
           };
         }
         else
@@ -291,19 +294,39 @@ Page({
       this.openModal(); 
     }
   },
-  showDetail(e) {
-
+  showListDetailOrder(e){
+    
+    console.log("Tap actual ", e.currentTarget.id + ' Valor detail order '+ this.data.detailOrder);
     if(e.currentTarget.id == "detail")
     {
       this.setData({
-        detailOrder: !this.data.detailOrder,
+        overlay : true,
+        detailOrder: true,
+        obveservOrder: false
       });
     }
     else
     {
       this.setData({
-        obveservOrder: !this.data.obveservOrder,
+        overlay : true,
+        obveservOrder: true,
+        detailOrder: false
       });
+    }
+
+    if(this.data.modalSelectorDocTypeActive){
+      this.setData({
+        backgroudUnfocused:"",
+        modalSelectorDocTypeOpenClass:"",
+        overlay : false,
+        modalSelectorDocTypeActive: false,
+      })
+    }else{
+      this.setData({
+        backgroudUnfocused:"backgroud-unfocused",
+        modalSelectorDocTypeOpenClass:"open",
+        modalSelectorDocTypeActive: true,
+      })
     }
   },
 });

@@ -49,7 +49,8 @@ Page({
           if ( error === 0 ) {
             userViewModel.setDataLocalUser(response)
             my.navigateTo({
-              url: '/main/ui/pages/home/home'
+              url: '/main/ui/pages/icono_home/icono_home'
+              
             })
           } else {
             my.alert({

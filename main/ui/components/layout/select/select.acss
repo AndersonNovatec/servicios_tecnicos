@@ -1,11 +1,3 @@
-:root {
-  --color-text-primary: #404040;
-  --bg-color-primary: #DA291C;
-  --border-color-primary: 1px solid #5e5e5e;
-  --border-radius: 8px;
-  --button-border-radius: 26px;
-}
-
 .container {
   padding: 10rpx;
 }

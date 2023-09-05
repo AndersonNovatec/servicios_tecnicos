@@ -23,6 +23,7 @@ const headers = {
 
 async function getService(api, data) {
     
+  console.log("Data a enviar", data);
   return new Promise(async (resolve, reject) => {
     try {
       const res = await my.request({

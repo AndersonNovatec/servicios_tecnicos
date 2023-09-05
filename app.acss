@@ -494,3 +494,27 @@ page {
 .container {
   padding: 30rpx;
 }
+
+.dropbtn {
+  border: solid 1px gray;
+  border-radius: 8px 8px 8px 8px;
+  position: relative;
+  display: flex;
+  background-color: white;
+  color: #333;
+  padding: 15rpx 0rpx 15rpx 40rpx;
+  font-size: 30rpx;
+  cursor: pointer;
+  min-width: 550rpx;
+  min-height: 80rpx;
+  align-items: center;
+}
+
+.img-dropbtn{
+  position: absolute;
+  left: 75%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px; 
+  height: 24px;
+}
