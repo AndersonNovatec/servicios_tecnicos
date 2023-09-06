@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "doc": "jsdoc -c jsdoc.json"
   },
   "dependencies": {
     "jest": "^29.5.0",
@@ -16,5 +17,8 @@
     "collectCoverageFrom": [
       "**/main/domain/**/*.{js,jsx}"
     ]
+  },
+  "devDependencies": {
+    "jsdoc": "^4.0.2"
   }
 }

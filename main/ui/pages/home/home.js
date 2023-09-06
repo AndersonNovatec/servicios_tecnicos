@@ -1,6 +1,24 @@
 const userViewModel = require('../../../domain/userViewModel');
 
+/**
+ * @module menú_cuentas - /ui/pages/manage
+ */
+
+/**
+ * @function PageManage
+ * @description Esta página muestra al usuario las cuentas registradas y permite seleccionar una de ellas, según el tipo de cuenta muestra algunas opciones o no
+ */
+
 Page({
+   /**
+   * Datos de la página.
+   * @property {boolean} isLoading - Indica si se debe mostrar el spiner de carga
+   * @property {string} userEmail - El correo electrónico del usuario.
+   * @property {Array} accountsType2 - Arreglo de cuentas del usuario tipo 2.
+   * @property {Array} accountsType3 - Arreglo de cuentas del usuario tipo 3.
+   * @property {Array} accountsType1 - Arreglo de cuentas del usuario tipo 1.
+   * @property {number} typeAccountTab - El tipo de pestaña de cuenta actual.
+   */
   data: {
     isLoading: false,
     userEmail: '',
@@ -9,6 +27,11 @@ Page({
     accountsType1: [],
     typeAccountTab: 3
   },
+  /**
+   * @function setAccountSelect
+   * @param {Event} target - El evento que desencadenó la selección de la cuenta.
+   * @description Establece la cuenta seleccionada y realiza acciones correspondientes.
+   */
   setAccountSelect({target}) {
     console.log(target);
     if (!this.isLoading) {
@@ -38,21 +61,34 @@ Page({
 
     }
   },
+  /**
+   * @function selectTab
+   * @param {Event} target - El evento que desencadenó el cambio de pestaña
+   * @description Cambia la pestaña de tipo de cuenta actual.
+  */
   selectTab({target}) {
     this.setData({
       typeAccountTab: target.dataset.tab
     })
   },
+  /**
+   * @function startClearStorage
+   * @description Utilizando la función startClearStorage libera la cache del dispositivo y redirección al home 
+  */
   startClearStorage() {
     userViewModel.startClearStorage()
     my.navigateTo({
       url: '/main/ui/pages/signUp/signUp'
     })
   },
+  /**
+   * @function onLoad
+   * @description USe ejecuta cuando la página carga y trar del userViewModel el metodo getUserLogged  en donde se almacenan las cuentas 
+   * Registradas para el usuario y almacena en la propiedad AccountType del data
+  */
   onLoad() {
     let { accounts, email } = userViewModel.getUserLogged();
 
-    console.log("Cuentas ", accounts);
     // Filtrar segun la linea de Negocio 1 = Fijos 2 = Prepago 3 = Postpago
     accounts = accounts.filter(x => ['2', '3', '1'].includes(x.LineOfBusiness))
 
